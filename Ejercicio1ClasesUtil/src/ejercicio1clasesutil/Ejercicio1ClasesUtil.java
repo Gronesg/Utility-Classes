@@ -14,9 +14,8 @@ a) Método mostrarVocales(), deberá contabilizar la cantidad de vocales que tie
 b) Método invertirFrase(), deberá invertir la frase ingresada y mostrarla por pantalla.
 Por ejemplo: Entrada: "casa blanca", Salida: "acnalbasac".
 c) Método vecesRepetido(String letra), recibirá un carácter ingresado por el usuario y contabilizar cuántas veces
-se repite el carácter en la frase, por ejemplo:
-d) Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.
-e) Método compararLongitud(String frase), deberá comparar la longitud de la frase que compone la clase con otra nueva frase ingresada por
+se repite el carácter en la frase, por ejemplo: Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.
+d) Método compararLongitud(String frase), deberá comparar la longitud de la frase que compone la clase con otra nueva frase ingresada por
 el usuario.
 f) Método unirFrases(String frase), deberá unir la frase contenida en la clase Cadena con una nueva frase ingresada por el usuario y mostrar
 la frase resultante.
@@ -39,13 +38,17 @@ public class Ejercicio1ClasesUtil {
         System.out.println("Cantidad de vocales: " + cantidadVocales);
         
         String fraseInvertida = cs1.invertirFrase(cadena1);
-        System.out.println(fraseInvertida);
+        System.out.println("Frase original: 'casa blanca'\nFrase invertida: " + fraseInvertida);
         
         System.out.println("Ingrese un caracter: ");
-        
         String caracter = leer.next();
         int vecesRepetido = cs1.vecesRepetido(cadena1, caracter);
         System.out.println("El caracter "+"'" + caracter + "'"+ " se repite " + vecesRepetido + " veces");
+        
+        cs1.compararLongitud(cadena1);
+        cs1.unirFrases(cadena1);
+        cs1.reemplazar(cadena1);
+        cs1.contiene(cadena1);
         
     }
 

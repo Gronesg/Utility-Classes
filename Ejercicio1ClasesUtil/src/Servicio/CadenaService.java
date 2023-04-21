@@ -62,4 +62,51 @@ public class CadenaService {
         
         return vecesRepetido;
     }
+    
+    //d) deberá comparar la longitud de la frase que compone la clase con otra nueva frase ingresada por el usuario.
+    public void compararLongitud(Cadena cadena){
+        Scanner leer = new Scanner(System.in);
+        int fraseOriginal = cadena.getLongitud();
+        System.out.println("Ingrese la frase para comprar sus longitudes: ");
+        String frase = leer.nextLine();
+        
+        //int longitudFrase = frase.length();
+        if (fraseOriginal == frase.length()){
+            System.out.println("Las longitudes son iguales");
+            System.out.println("frase original: " + fraseOriginal + " segunda frase: " + frase.length());
+        } else {
+            System.out.println("Las longitudes no son iguales");
+            System.out.println("frase original: " + fraseOriginal + " segunda frase: " + frase.length());
+        }
+    }
+    
+    //f) Método unirFrases(String frase), deberá unir la frase contenida en la clase Cadena con una nueva frase ingresada por el usuario y mostrar
+    //la frase resultante.
+    public void unirFrases(Cadena cadena){
+        Scanner leer = new Scanner(System.in);
+        String fraseOriginal = cadena.getFrase();
+        System.out.println("Ingrese la nueva frase para unir con la original:");
+        String nuevaFrase = leer.nextLine();
+        System.out.println("La frase concatenada queda: " + fraseOriginal.concat(nuevaFrase));
+        
+    }
+    
+    /*g)Método reemplazar(String letra), deberá reemplazar todas las letras “a” que se encuentren en la frase, por algún otro carácter
+    seleccionado por el usuario y mostrar la frase resultante.*/
+    public void reemplazar(Cadena cadena){
+        Scanner leer = new Scanner(System.in);
+        //String fraseOriginal = cadena.getFrase();
+        System.out.println("Ingrese el caracter a reemplazar por la letra 'a': ");
+        String caracter = leer.next();
+        System.out.println("La cadena reemplazando la letra 'a' por la letra " + "'" + caracter + "'" + " queda: " + cadena.getFrase().replace("a", caracter));
+        
+    }
+    //h) deberá comprobar si la frase contiene una letra que ingresa el usuario y devuelve verdadero si la contiene y
+    //falso si no.
+    public void contiene(Cadena cadena){
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ingrese una letra para ver si la frase la contiene: ");
+        String letra = leer.next();
+        System.out.println("¿La letra esta? (True/False): " + cadena.getFrase().contains(letra));
+    }
 }
