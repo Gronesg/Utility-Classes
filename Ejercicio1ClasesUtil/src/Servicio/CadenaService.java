@@ -46,20 +46,15 @@ public class CadenaService {
     
     //c) recibirá un carácter ingresado por el usuario y contabilizar cuántas veces se repite el carácter en la frase
     public int vecesRepetido(Cadena cadena, String caracter){
-        //Scanner leer = new Scanner(System.in);
         String frase = cadena.getFrase();
         int vecesRepetido = 0;
-        //System.out.println("Ingrese un caracter: ");
-        //String caracter = leer.next();
         for (int i = 0 ; i < frase.length() ; i++){
             if (caracter.indexOf(cadena.getFrase().charAt(i)) != -1){
-            //if (frase.charAt(i) == caracter){
             vecesRepetido++;
                 
             }
         }
-        
-        
+              
         return vecesRepetido;
     }
     
@@ -67,11 +62,12 @@ public class CadenaService {
     public void compararLongitud(Cadena cadena){
         Scanner leer = new Scanner(System.in);
         int fraseOriginal = cadena.getLongitud();
-        System.out.println("Ingrese la frase para comprar sus longitudes: ");
+        System.out.println("Ingrese la frase para comparar sus longitudes: ");
         String frase = leer.nextLine();
         
-        //int longitudFrase = frase.length();
-        if (fraseOriginal == frase.length()){
+        if (fraseOriginal == frase.length()){  
+            /*Tambien puedo usar (cadena.getLongitud() == frase.lenght()) directamente
+            sin tener que hacer lo de la linea 64*/
             System.out.println("Las longitudes son iguales");
             System.out.println("frase original: " + fraseOriginal + " segunda frase: " + frase.length());
         } else {
@@ -80,7 +76,7 @@ public class CadenaService {
         }
     }
     
-    //f) Método unirFrases(String frase), deberá unir la frase contenida en la clase Cadena con una nueva frase ingresada por el usuario y mostrar
+    //e) Método unirFrases(String frase), deberá unir la frase contenida en la clase Cadena con una nueva frase ingresada por el usuario y mostrar
     //la frase resultante.
     public void unirFrases(Cadena cadena){
         Scanner leer = new Scanner(System.in);
@@ -88,25 +84,32 @@ public class CadenaService {
         System.out.println("Ingrese la nueva frase para unir con la original:");
         String nuevaFrase = leer.nextLine();
         System.out.println("La frase concatenada queda: " + fraseOriginal.concat(nuevaFrase));
+        //.concat() concatena lo ingresado en <<nuevaFrase>> al final de la frase original
         
     }
     
-    /*g)Método reemplazar(String letra), deberá reemplazar todas las letras “a” que se encuentren en la frase, por algún otro carácter
+    /*f)Método reemplazar(String letra), deberá reemplazar todas las letras “a” que se encuentren en la frase, por algún otro carácter
     seleccionado por el usuario y mostrar la frase resultante.*/
     public void reemplazar(Cadena cadena){
         Scanner leer = new Scanner(System.in);
         //String fraseOriginal = cadena.getFrase();
         System.out.println("Ingrese el caracter a reemplazar por la letra 'a': ");
-        String caracter = leer.next();
+        String caracter = leer.next(); //Ingreso del caracter por el que voy a reemplazar
         System.out.println("La cadena reemplazando la letra 'a' por la letra " + "'" + caracter + "'" + " queda: " + cadena.getFrase().replace("a", caracter));
+        //.replace() reemplaza el primer parametro "a" , por el segundo parametro, en este caso <<caracter>>, previamente ingresado
+        
+        /*NOTA= El reemplazo de la letra "a" solo funciona si ingresamos "casa blanca" como frase original,
+        si optamos por la forma 2, y nuestra frase original no tiene "a", no surgirá cambios. En todo caso
+        solo hay que cambiar el primer parametro en la linea 98 "cadena.getFrase().replace("a", caracter)"*/
         
     }
-    //h) deberá comprobar si la frase contiene una letra que ingresa el usuario y devuelve verdadero si la contiene y
+    //g) deberá comprobar si la frase contiene una letra que ingresa el usuario y devuelve verdadero si la contiene y
     //falso si no.
     public void contiene(Cadena cadena){
         Scanner leer = new Scanner(System.in);
         System.out.println("Ingrese una letra para ver si la frase la contiene: ");
-        String letra = leer.next();
+        String letra = leer.next(); //Ingreso de la letra para buscar en la frase original
         System.out.println("¿La letra esta? (True/False): " + cadena.getFrase().contains(letra));
+        //.contains() Busca en la cadena, el parametro envidado, en este caso <<letra>> previamente ingresado
     }
 }
